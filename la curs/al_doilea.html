@@ -8,50 +8,79 @@
             width: 50px;
             hight: 50px;
         }
-
         .icon {
             width: 30px;
             hight: 30px;
+            display: inline-block;
         }
+        /*
+        content-box: width-hight doar inaltimea contentului;
+        border-box: include borderul, padding, content, cand folosim procente;
 
+        display-block: ia latimea parintelui, inaltime in functie de continut;
+        inline: dimensiune in functie de continut;
+        inline-block : latimea is inaltimea contentului;
+        
+        */
         .big {
             font-size: 20px;
+            font-size: 20px;
         }
-
         nav {
             font-size: 15px;
         }
-
         * {
             padding: 0;
             margin: 0;
         }
-
-        #secondaryNav .icon {
+        #secondaryNav .icon /* se cauta in toti copii*/ {
             padding: 0;
             margin: 0;
         }
-
-        #secondaryNav>.icon {
+        #secondaryNav > .icon /* cauta in copii directi*/ {
             padding: 0;
             margin: 0;
         }
-
-        #secondaryNav>div {
+        #secondaryNav > div .icon {
             padding: 0;
             margin: 0;
         }
-
         .big.icon {
             padding: 0;
         }
-
         [type="search"] {
             padding: 0;
         }
-
+        [type] /* selector in functie de atribut*/{
+            padding: 0;
+        }
         input[type="search"] {
             margin: 0;
+        }
+        input.fancy[type="search"] {
+            padding: 0;
+        }
+        .clasa1,
+        .clasa2 {
+            padding: 0;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 20px;
+            width: 50%;
+        }
+        .icon:not(.big) /*in paranteza care nu trebuie respectat*/ {
+
+        }
+        .icon:not(.hidden) {
+
+        }
+        li:nth-child(odd) {
+
         }
     </style>
 </head>
