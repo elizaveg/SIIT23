@@ -1,0 +1,79 @@
+/* SELECTORI */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: grey;
+}
+aside {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+#logo /* selector pe baza de id*/ {
+  max-width: 50px;
+  max-height: 30px;
+}
+header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-right: 3px solid rgb(190, 190, 190);
+  border-bottom: 3px solid rgb(190, 190, 190);
+}
+nav /* selector pe baza de tag*/ {
+  border-right: 3px solid rgb(190, 190, 190);
+  flex: 1;
+}
+.button /*selectori pe baza de clasa*/ {
+  padding: 15px 10px;
+  /*sau 15px 10px 15px 10px*/
+  cursor: pointer;
+  /*se schimba mouseul pe text*/
+}
+.button.active {
+  background-color: teal;
+  color: white;
+}
+.button:hover {
+  background-color: aqua;
+}
+.button > img {
+  /*din buton select imagine*/
+  vertcal-align: middle;
+  max-width: 26px;
+  max-height: 26px;
+  margin-right: 10px;
+  /*indeparteaza text de hamb meniu*/
+}
+.page {
+  display: none; /*un tag nu ne se vede*/
+}
+.page.active {
+  display: flex; /*se vede doar pagina active*/
+}
+
+#pageTitle {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 1.6rem;
+}
+header > .button {
+  border-right: 2px solid rgb(190, 190, 190);
+}
+#pages > .page {
+  display: none;
+}
+#pages > .page.active {
+  display: flex;
+  flex-direction: column;
+}
+tfoot.button > img {
+  width: 20px;
+}
