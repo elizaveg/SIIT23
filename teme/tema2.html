@@ -4,68 +4,114 @@
 <head>
     <title>My lovely cats</title>
     <style>
-        .container {
-            width: available;
-            height: available;
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
         }
-
         .leftpane {
-            width: 25%;
-            min-width: 350px;
-            height: available;
-            min-height: 600px;
+            width: 15%;
+            min-width: 250px;
+            min-height: 700px;
             float: left;
             border-collapse: collapse;
-            border-right: 6px solid brown;
-            height: 600px;
+            border-right: 3px solid brown;
+            height: 100%;
+            flex-direction: column;
         }
-
+        .main{
+            float: left;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 30px;
+        }
         .photo {
             display: block;
             margin: 0 auto;
-            height: auto;
-            width: 20%;
-            margin: 0 10 0 -20%;
-            -webkit-border-radius: 20%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
+            height: 250px;
+            margin-top: 20px;;
             border-radius: 50%;
+            border: 5px solid #555;
+        }
+        button {
+            border: none;
+            padding: 0;
+            background: none;
+        }
+        .button {
+            cursor: pointer;
+        }
+        .button:active {
+            color: blue;
+        }
+        .button:visited {
+            color: blueviolet;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: flex;
         }
     </style>
 </head>
 
-<body style="background-color:antiquewhite">
-    <div class="container"></div>
-    <!--<div class="verticalLine"></div> -->
+<body style="background-color:rgba(250, 235, 215, 0.781)">
     <div class="leftpane">
-
+        <div id="pageTitle"></div>
         <ul>
-            <button>Main coon</button><br /><br />
-            <button>Bengal Cat</button><br /><br />
-            <button>British Shorthair Cat</button><br /><br />
-            <button>Egyptian Mau Cat</button><br /><br />
-            <button>Norwegian Forest Cat</button><br /><br />
-            <button>Persian Cat</button>
-
+            <div class="button active">
+                <span><b>Main coon</b></span>
+            </div><br /><br />
+            <div class="button">
+                <span><b>Bengal Cat</b></span>
+            </div><br /><br />
+            <div class="button">
+                <span><b>British Shorthair Cat</b></span>
+            </div><br /><br />
+            <div class="button">
+                <span><b>Egyptian Mau Cat</b></span>
+            </div><br /><br />
+            <div class="button">
+                <span><b>Norwegian Forest Cat</b></span>
+            </div><br /><br />
+            <div class="button">
+                <span><b>Persian Cat</b></span>
+            </div>
         </ul>
-
     </div>
-    <div><img class="photo" src="img/MainCoon.jpg" alt="Here should be the cutest cat of the world" /></div>
-    <h1> &nbsp; Main coon</h1>
-    <div> &nbsp;<b>Life Span:</b> 9 - 15 years</div> <br />
-    <div>&nbsp;<b>Lenght:</b> 30 - 40 inches</div> <br />
-    <div>&nbsp;<b>Weight:</b> 9 - 18 pounds</div> <br />
-    <br />
-    <p>The Maine Coon is a native New Englander, hailing from Maine, where they were popular mousers, farm cats,
-        and–most likely–ship’s cats, at least as far back as the early 19th century. The first thing you’ll probably
-        notice is that Maine Coons are big–really big! In fact, the record for the world’s longest house cat belongs to
-        a Maine Coon who grew to be over four feet long. But these kitties have more going for them than size. They’re
-        affectionate without being needy, they’re adaptable, and they’ve kept their hunting instincts, just in case you
-        need a good mouser. If you can handle a whole lot of cat, this kitty might be a perfect addition to your family.
-        It’s important to remember that cats of any breed can suffer from health issues throughout their lives. A good
-        pet insurance plan can help you prepare to give your cat the care they need at any age.</p>
+    <div class="main">
+        <div id="pages">
+            <div class="pageActive">
+                <div style="display: flex; width: 100%; padding: 30px; box-sizing: border-box;"></div>
+                    <img class=photo src="img/MainCoon.jpg" /><br />
+                    <h1> Main Coon</h1>
+                    <div> &nbsp;<b>Life Span:</b> &nbsp;&nbsp;  9 - 15 years</div> <br />
+                    <div>&nbsp;<b>Lenght:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30 - 40 inches</div> <br />
+                    <div>&nbsp;<b>Weight:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 - 18 pounds</div> <br />
+                    <br />
+                    <p>&nbsp;The Maine Coon is a native New Englander, hailing from Maine, where they were popular mo
+                 s,
+                and–most likely–ship’s cats, at least as far back as the early 19th century. The first 
+                probably
+                 notice is that Maine Coons are big–really big! In fact, the record for the world’s long
+                belongs to
+                 a Maine Coon who grew to be over four feet long. But these kitties have more going for 
+                size. They’re
+                 affectionate without being needy, they’re adaptable, and they’ve kept their hunting ins
+                in case you
+                 need a good mouser. If you can handle a whole lot of cat, this kitty might be a perfect
+                your family.
+                 It’s important to remember that cats of any breed can suffer from health issues through
+                lives. A good
+                 pet insurance plan can help you prepare to give your cat the care they need at any age.</p>
+            </div>
+        </div>
+        <div class="page">Bengal Cat</div>
+        <div class="page">Egyptian Mau Cat</div>
+
 
 </body>
-
 </html>
