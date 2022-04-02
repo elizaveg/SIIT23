@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        function preventAllButDigits(input,event) {
+            if(event.data>="0" && event.data<="9") {
+            }else {
+                event.preventDefault();
+            }
+            console.log(input,event);
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text"
+    onintup="preventAllButDigits(this,event)"
+    onkeydown="console.log('onkeydown')"
+    onkeyup="console.log('onkeyup')"
+    onkeypress="console.log('onkeypress')"
+    onchange="console.log('onchange')"
+    />
+</body>
+</html>

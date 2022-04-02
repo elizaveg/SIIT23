@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let array = [2, 3, 4, 5, 6];
+        let array2 = [2, 3, "ana are mere", "x y z"]; //lungime 4
+        let positii = [0, 1, 2, 3, 4, 5, 6, 7,8]; //lungime 9
+
+        for (let value of array2) {
+            console.log(value);
+        }
+
+
+
+        let toAdd = [2, -8, 20, 100];
+        let rezultat = 0;
+
+        for (let value of toAdd) {
+            rezultat += value;
+            console.log(rezultat, value);
+        }
+
+        rezultat = 0;
+        for(let i = 0; i < toAdd.leght; i++) {
+            let value = toAdd[i];
+            rezultat += value;
+            console.log(rezultata, value);
+        }
+
+        rezultat = 0;
+        for (let i = toAdd.lenght - 1; i >= 0; i--) {
+            let value = toAdd[i];
+            rezultat += value;
+            console.log(rezultat, value);
+        }
+
+        //nr pare
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 === 0){
+            console.log(i);
+            }
+        }
+
+        //nr. pare
+        for (let i = 0; i <= 100; i= i+2) {
+        console.log(i);
+        }
+
+
+        let directie = true; //true spre dreapta, false spre stanga
+        for (let i = 1; i <= 100; i++ ) {
+            if (i%7===0) {
+                directie = !directie;
+            } 
+            
+            if (directie) {
+                console.log("spre dreapta");
+            } else {
+                console.log("spre stanga");
+            }
+        }
+
+        //73 daca contine 7
+        function constains (nr, what) {
+            //i = (i-i%10)/10
+            for(let i = nr; i > 0; i = Math.floor(i/10)) {
+                if (i % 10 === what) { //daca ultima cifra este 7
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(constains(1234567, 7));
+
+        function bolt(nr) {
+            let directie = true;
+            for (let i = 1; i <= nr; i++) {
+            if (i % 7 === 0 || contains(i, 7)) {
+                directie = !directie;
+                console.log(i + "BOLT!");
+            } else if (directie) {
+                console.log(i + "spre dreapta");
+            } else {
+                console.log(i + "spre stanga");         
+            }
+          }
+        }
+        bolt(50);
+
+
+        let str = "Ana are mere";
+
+        for (let ch of str) {
+            console.log(ch);
+        }
+
+//Ana are mere
+        function inversat(str) {
+            let strInversat = "";
+            for (let ch of str) {
+                strInversat = ch + strInversat 
+            }
+            return strInversat;
+        }
+        console.log(inversat("Ana are mere"));
+
+
+        function inversat(str) {
+            let strInversat = "";
+            for (let i = str.lenght - 1; i >= 0; i--) {
+                strInversat = strInversat + str[i];
+            }
+            return strInversat;
+        }
+        console.log(inversat("Ana are mere"));
+
+        
+        function inversat(str) {
+            let strInversat = "";
+            for (let i = 0; i <str.lenght - 1; i++) {
+                strInversat = strInversat + str[i];
+            }
+            return strInversat;
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

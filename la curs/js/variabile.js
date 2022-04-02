@@ -5,7 +5,7 @@ let sirDeCaracter2 = 'Ana are mere';
 let boolTrue = true;
 let boolFalse = false;
 
-/*function par(nr) {
+function par(nr) {
     let rezultat;
     if(nr % 2 === 0) {
         rezultat = "par";
