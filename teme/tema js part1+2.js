@@ -87,10 +87,40 @@ console.log(sum(6));
  /**
   * 7. O functie "sumaPrime" care primeste 1 parametru si returneaza suma primelor N numere prime (pentru N=5 trebuie sa returneze 2+3+5+7+11=28)
   */
-  
+  function prim(j) {
+    if(j <= 0 || j === 1 ) {
+        return false;
+    }else if(j === 2) {
+        return true;
+    }else if (j%2===0){
+        return false;
+    }else {
+       for (var x = 2; x < j; x++) {
+           if (j % x === 0) {
+               return false;
+           }
+       } return true;
+    }
+    }
+console.log(prim(3));
+
  function sumaPrime(n) {
-    for(let n = 0; n <= 100; n++) {
-    console.log(n);
+     var sum = [];
+    for(let i = 0; i <= 100; i++) {
+    console.log(i);
+        if(i <= 0 || i === 1 || i%2===0) {
+            return "This is a Nan";
+        }else if(i === 2) {
+            return i;
+        }else {
+           for (var x = 2; x < i; x++) {
+               if (i % x === 0) {
+                   return "This is a Nan";
+               }
+           } return n;
+        }
+        
+
  }
 }
   console.log(sumaPrime(3));
@@ -155,6 +185,22 @@ console.log(maxArray([4, 8, 5, 3, 9, 23, 74 ]));
  * 12. O functie "sumMinMax" care primeste un array de numere si returneaza suma dintre valoare maxima si valoare minima
  */
 
+ function minArray (arr) {
+    let m = arr[0];
+    for(let value of arr) {
+        if (value < m) {
+            m = value;
+        }
+    } return m;
+}
+console.log(minArray([4, 8, 5, 3, 9, 23, 74 ]));
+
+function sumMinMax(arr) {
+    return maxArray(arr);
+}
+
+console.log(sumMinMax([4, 8, 5, 3, 9, 23, 74 ]));
+console.log(minArray(([4, 8, 5, 3, 9, 23, 74 ]))+maxArray(([4, 8, 5, 3, 9, 23, 74 ])));
 
 /**
  * 13. O functie "hasDuplicates" care primeste un array si returneaza daca exista duplicate intr-un array primit ca parametru (true/false)
@@ -307,5 +353,5 @@ console.log(invertAllStrings("UIT SEC TOT CE STIU"));
   */
 
  /**
-  * 15. O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa returnati de cate ori s-a apelat functia recursiv ("countBinarySearch")
+  * 15. O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa returnati de cate ori s-a apelat functia recursiv ("countBinarySearch") 
   */
