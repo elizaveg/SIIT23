@@ -1,13 +1,15 @@
 /**
  * 1. O functie "equals" care primeste 2 parametrii si returneaza daca cei 2 parametrii sunt egali, strict
  */
+
 function equals(a, b) {
     if (a === b) {
-        return "a = b";
+        return true;
+    } else {
+        return false;
     }
 }
 console.log(equals(5, 5));
-
 
 
 /**
@@ -15,13 +17,13 @@ console.log(equals(5, 5));
 */ 
 function compare(c, d) {
     if(c < d) {
-        return "-1";
+        return -1;
     } else if (c === d) {
         return 0;
     } else (c > d) 
         return 1;
 }
-console.log (compare(6, -3));
+console.log (compare(1, 2));
 
 
 
@@ -55,13 +57,13 @@ console.log(min(11, 83));
  *  5. O functie "suma" care primeste 1 parametru, numar intreg si returneaza suma primelor N numere naturale pozitive (exemplu: daca N este 3, trebuie sa returneze 6)
  */
 
-function sum(nr){
+function suma(nr){
     let suma = 0;
     for (let i = 1; i <= nr; i++) {
             suma += i;
         } return suma;
 }
-console.log(sum(6));
+console.log(suma(6));
 
 /**
  6. O functie "prim" care primeste 1 parametru si returneaza true/false daca N este numar prim sau nu (restul impartirii la 1 si la N ==0)
@@ -81,49 +83,57 @@ console.log(sum(6));
             }
         } return true;
      }
-     }
+    }
  console.log(prim(3));
 
  /**
   * 7. O functie "sumaPrime" care primeste 1 parametru si returneaza suma primelor N numere prime (pentru N=5 trebuie sa returneze 2+3+5+7+11=28)
   */
-  function prim(j) {
-    if(j <= 0 || j === 1 ) {
-        return false;
-    }else if(j === 2) {
-        return true;
-    }else if (j%2===0){
-        return false;
-    }else {
-       for (var x = 2; x < j; x++) {
-           if (j % x === 0) {
-               return false;
-           }
-       } return true;
-    }
-    }
-console.log(prim(3));
-
- function sumaPrime(n) {
-     var sum = [];
-    for(let i = 0; i <= 100; i++) {
-    console.log(i);
-        if(i <= 0 || i === 1 || i%2===0) {
-            return "This is a Nan";
-        }else if(i === 2) {
-            return i;
-        }else {
-           for (var x = 2; x < i; x++) {
-               if (i % x === 0) {
-                   return "This is a Nan";
-               }
-           } return n;
-        }
-        
-
- }
-}
-  console.log(sumaPrime(3));
+  
+  var MAX = 10000 ;
+  let i;
+  let p;
+  // Create a boolean array "prime[0..n]" and initialize
+  // all entries it as true. A value in prime[i] will
+  // finally be false if i is Not a prime, else true.
+  var prime = Array.from({length: parseInt( (MAX + 1.0))}, (_, i) => false);
+  function SieveOfEratosthenes() {
+      for(i = 0; i <= MAX; i++)
+          prime[i] = true ;
+      prime[1] = false;
+      for (p = 2; p * p <= MAX; p++) {
+          // If prime[p] is not changed, then it is a prime
+          if (prime[p] == true) {
+              // Set all multiples of p to non-prime
+              for (i = p * 2; i <= MAX; i += p)
+                  prime[i] = false;
+          }
+      }
+  }
+  
+  // find the sum of 1st N prime numbers
+  function sumaPrime(n) {
+      // count of prime numbers
+      var count = 0, num = 1;
+      // sum of prime numbers
+      var sum = 0;
+      while (count < n) {
+          // if the number is prime add it
+          if (prime[num]) {
+              sum += num;
+              count++;
+          }
+          num++;
+      }
+      return parseInt( sum);
+  }
+  // Driver code
+  //create the sieve
+  SieveOfEratosthenes();
+  
+  var n = 5;
+  console.log("Sum of 1st  prime numbers are :" + sumaPrime(n));
+  
  
  /** 
   * 8. O functie "invers" care primeste un parametru de tip numar si intoarce inversul acestuia (ca numar) (123 => 321)
@@ -139,18 +149,21 @@ console.log(invers(123));
 /**
  * 9. O functie "produsImpare" care primeste 1 parametru si returneaza produsul primelor N numere impare pozitive (pentru N=5; returneaza 1*3*5*7*9=945) 
 */
-/*function produsImpare(p) {
-    let z = arr[0];
-    for (let value=1; value <= 100; value++) {
-        if (value%2 === 0 && value > 0) {
-            return false;
-        } else {
-            return true;
-        }
+/*
+function produsImpare(n) {
+    var mult = 1;
+    var counter=[];
+  
+    for (var i = 1; i <= 2*n-1; i += 2){
+      counter.push(i);
     }
-}
-*/
-
+  
+    console.log(counter);
+    return mult=mult*counter[i];
+  }                
+  
+  console.log(produsImpare(5));
+    */
 /**
  * 10. O functie "contains" care primeste 2 parametri(arr - array de nr intregi si x - numar) si verifica daca x exista in array (rezultatul este true/false)
  */
@@ -355,3 +368,25 @@ console.log(invertAllStrings("UIT SEC TOT CE STIU"));
  /**
   * 15. O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa returnati de cate ori s-a apelat functia recursiv ("countBinarySearch") 
   */
+ function countBinarySearch(arr, num) {
+     arr.sort((a,b) => a - b);
+
+     let lower = 0;
+     let upper = arr.lenght - 1;
+     let count = 0;
+
+     while (lower <= upper) {
+         count++;
+         const middle = lower + Math.floor((upper - lower) / 2);
+
+         if (num === arr[middle]) {
+             break;
+         }
+         if (num < arr[middle]) {
+             upper = middle -1;
+         }else {
+             lower = middle +1;
+         }
+     }
+     return count;
+ }

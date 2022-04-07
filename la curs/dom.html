@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        function par(nr) {
+            let rezultat;
+            if(nr % 2 === 0) {
+                rezultat = "par";
+            } else {
+                rezultat = "impar";
+            }
+            return rezultat;
+        }
+
+        function clickME() {
+            let input = document.querySelector("#numar");
+            let numar = Number(input.value);
+            let parImpar = par(numar);
+
+        }
+    </script>
+
+</head>
+<body>
+    <input type="number" id="numar" step="100" />
+    <button onclick="clickME();">Click me</button>
+    <div id="result"></div> 
+</body>
+</html>
