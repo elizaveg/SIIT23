@@ -5,29 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <style>
+        input.error{
+            border: 2px solid red;
+            background-color: lightcoral;
+        }
+    </style>
     <script>
-        function par(nr) {
-            let rezultat;
-            if(nr % 2 === 0) {
-                rezultat = "par";
+        function indiceMasa(greutate, inaltime) {
+            let imc = greutate / (inaltime * inaltime);
+            let tip;
+            if (imc < 20) {
+                tip = "subponderal";
+            } else if (imc < 25) {
+                tip = "normal";
+            } else if (imc < 30) {
+                tip = "subponderal";
+            } else if (imc < 40) {
+                tip = "obez";
             } else {
-                rezultat = "impar";
+                tip = "bolnav";
             }
-            return rezultat;
         }
 
-        function clickME() {
-            let input = document.querySelector("#numar");
-            let numar = Number(input.value);
-            let parImpar = par(numar);
+        return tip;
 
+        function clickME() {
+            let greutateInput = document.querySelector("#greutate");
+            let inaltimeInput = document.querySelector("#inaltime");
+            let greutate = Number(greutateInput.value);
+            let inaltime = Number(inaltimeInput.value);
+            if(isNan(greutate) || greutate < 30 || greutate > 250 ) {
+                greutateInput.classList.add("error");
+            } else {
+                greutateInput.classList.remove("error");
+            }
+            if (isNan(inaltime) || inaltime < 1 || inaltime > 2.2) {
+                inaltimeInput.classList.add("error");
+            } else {
+                inaltimeInput.classList.remove("error");
+            }
+            let indice = indiceMasa(greutate, inaltime);
+            let div = document.querySelector("#result");
+            div.innerHTML = `La greutatea de ${greutate}kg si ${inaltime}m esti <b> ${indice} </b>`;
         }
     </script>
 
 </head>
 <body>
-    <input type="number" id="numar" step="100" />
+    <input type="number" class="error" id="greutate" placeholder="Greutate kg" />
+    <input type="number" id="b" placeholder="Second number" />
+    
     <button onclick="clickME();">Click me</button>
-    <div id="result"></div> 
+    <div id="result">.........</div> 
 </body>
-</html>
+</html> 

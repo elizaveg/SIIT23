@@ -272,7 +272,18 @@ function produsPositive(arr) {
  /**
   * 1. O functie "getDigits" care primeste un sir de caractere si returneaza cifrele din sirul respectiv
   */
+/*const caract = jdhb3639hencn02;
+ function getDigits(caract) {
+     for (let char of caract) {
+         if(typeof text !== 'string') {
+             return [];
 
+         }
+     }
+
+
+ }
+ */
 
  /**
   * 2. O functie "getLetters" care primeste un sir de caractere si returneaza doar literele din sirul respectiv
