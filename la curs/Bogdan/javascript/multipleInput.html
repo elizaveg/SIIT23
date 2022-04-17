@@ -17,13 +17,13 @@
     </style>
     <script>
       function addInput() {
-        let inputContainer = document.querySelector("#inputContainer");
+        let inputContainer = document.querySelector("#inputContainer"); //DOM
         //varianta de evitat pentru ca sterge tot htmlul si il recreeaza
         //inputContainer.innerHTML += `<input type="text" />`;
         inputContainer.insertAdjacentHTML('beforeend', `<input type="text" />`);
       }
       function sum(){
-        let inputs = document.querySelectorAll("#inputContainer > input");
+        let inputs = document.querySelectorAll("#inputContainer > input"); //DOM
         let s = 0;
         for(let input of inputs){
             let n = Number(input.value);

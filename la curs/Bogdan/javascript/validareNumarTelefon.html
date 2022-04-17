@@ -13,7 +13,7 @@
       }
       input.error[type="radio"],
       input.error[type="checkbox"] {
-        outline: 2px solid red;
+        outline: 2px solid red; 
       }
       .errorMessage {
         color: red;
@@ -21,17 +21,19 @@
     </style>
     <script>
       function valideazaTelefon(input) {
-        let valid = true;
-        if (input.value.length > 0) {
+        let valid = true; // se porneste cu situatia ca este bine, pana cand..
+        //camp optional
+        if (input.value.length > 0) { //daca se scrie in camp se valideaza, daca nu se scrie este valid(rand 24)
           for (let ch of input.value) {
             if (ch < "0" || ch > "9") {
-              valid = false;
+              //fiecare caracter trebuie sa fie intre 0 si 9
+              valid = false; // caut un exemplu cand nu e ok
             }
           }
           valid = valid && input.value.length === 10;
         }
-
         showError(input, valid, "Numarul de telefon nu este de 10 cifre");
+        //se da functia mea"input" si daca este valid sau nu
       }
       function valideazaNume(input) {
         let valid = input.value.length >= 3;
@@ -50,33 +52,30 @@
         );
       }
       function showError(input, valid, message) {
-        let span = input.nextElementSibling;
+        let span = input.nextElementSibling; //se ia din consola $0 (se selecteaza din elements elementul anterior si in consola se scrie $0)
         if (valid) {
-          input.classList.remove("error");
-          span.innerHTML = "";
+          input.classList.remove("error"); //daca este valid se scoate error-ul
+          span.innerHTML = ""; //nu ia nici o valoare
         } else {
-          input.classList.add("error");
-          span.innerHTML = message;
+          input.classList.add("error"); //altfel adaug
+          span.innerHTML = message; //pentru adaugare mesaj
         }
       }
       function valideazaFormular(event) {
-        event.preventDefault();
-
+        event.preventDefault(); //nu face submit la formular
+        //validare campuri
         let firstname = document.querySelector("[name='firstname']");
         let lastname = document.querySelector("[name='lastname']");
         let phone = document.querySelector("[name='phone']");
-        firstname.onchange();
-        lastname.onchange();
-        phone.onchange();
-        // valideazaPrenume(firstname);
-        // valideazaNume(lastname);
-        //valideazaTelefon(phone);
-        let gender = document.querySelector("[name='gender']:checked");
+        firstname.onchange(); // valideazaPrenume(firstname);
+        lastname.onchange(); // valideazaNume(lastname);
+        phone.onchange(); //valideazaTelefon(phone);
+        let gender = document.querySelector("[name='gender']:checked"); //se cauta acel gender care e checked returneaza value
         if (gender === null) {
           //atunci nu e bifat genderul
-          let allGender = document.querySelectorAll("[name='gender']");
+          let allGender = document.querySelectorAll("[name='gender']"); //caut toate inputurile care sunt gender
           for (let radio of allGender) {
-            radio.classList.add("error");
+            radio.classList.add("error");//adaug la toate clasa error
           }
         } else {
           let allGender = document.querySelectorAll("[name='gender']");
@@ -95,7 +94,7 @@
           type="text"
           name="firstname"
           placeholder="FirstName"
-          onchange="valideazaPrenume(this)"
+          onchange="valideazaPrenume(this)" 
           onfocus="showError(this,true)"
         />
         <span class="errorMessage"></span> </label>
@@ -128,7 +127,7 @@
       <label>Female<input type="radio" name="gender" value="female" /></label>
       <br />
       <label>
-        <input type="checkbox" name="tos" value="agree" />
+        <input type="checkbox" name="tos" value="agree" /> 
         Accept terms of service
       </label>
       <br />

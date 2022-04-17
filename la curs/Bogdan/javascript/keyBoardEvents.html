@@ -20,10 +20,10 @@
   <body>
     <input
       type="text"
-      oninput="console.log('oninput'+this.value)"
       onkeydown="console.log('onkeydown'+this.value)"
-      onkeyup="console.log('onkeyup'+this.value)"
       onkeypress="console.log('onkeypress'+this.value);preventAllButDigits(this,event)"
+      oninput="console.log('oninput'+this.value)"
+      onkeyup="console.log('onkeyup'+this.value)"
       onchange="console.log('onchange'+this.value)"
     />
   </body>
