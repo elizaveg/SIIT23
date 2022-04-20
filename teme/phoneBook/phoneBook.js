@@ -4,10 +4,6 @@ let state = {
             nume:"Anastasia",
             phone:"0712345678",
         },
-        {
-            nume:"Cristian",
-            phone:"0712465748",
-        },
     ],
 idxEdit:null,
 };
@@ -64,4 +60,10 @@ function adauga(event) {
     }
     document.querySelector("form").reset();
     draw();
+}
+
+
+function showTable() {
+    document.querySelector("#list").classList.remove("hidden");
+    document.querySelector("#form").classList.add("hidden");
 }
