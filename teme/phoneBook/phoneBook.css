@@ -29,6 +29,11 @@ table {
  tbody{
      text-align: center;
  }
+ .error {
+    border: 2px solid red;
+    background-color: rgb(253, 183, 183);
+    color: black;
+  }
 
 
 

@@ -10,11 +10,29 @@
 </head>
 <body onload="draw();">
     <h1> Agenda </h1>
-    <form id="form" onsubmit="adauga(event);">
-        Nume: &nbsp;
-        <input type="text" name="nume" placeholder="Nume persoana" />&nbsp;
-        Telefon: &nbsp;
-        <input type="text" name="phone" placeholder="Numar de telefon" /><br />
+    <form id="form" onsubmit="adauga(event);" onsubmit="valideazaFormular(event);" >
+        <label>
+            Nume: &nbsp;
+            <input 
+               type="text" 
+               name="nume" 
+               placeholder="Nume persoana" 
+               onchange="valideazaNume(this)"
+               onfocus="showError(this,true)"
+            />&nbsp;
+            <span class="error"></span> 
+        </label>
+        <label>
+            Telefon: &nbsp;
+            <input 
+               type="text" 
+               name="phone" 
+               placeholder="Numar de telefon" 
+               onchange="valideazaTelefon(this)"
+               onfocus="showError(this,true)"
+            /><br />
+            <span class="error"></span>
+        </label>
         <div>&nbsp;
             <input type="submit" onclick="showTable()" value = "ADAUGA CONTACT" />
         </div>
