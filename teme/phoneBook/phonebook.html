@@ -11,18 +11,18 @@
 <body onload="draw();">
     <h1> Agenda </h1>
     <form id="form" onsubmit="adauga(event);">
-        Nume:
-        <input type="text" name="nume" placeholder="Nume persoana" />
-        Telefon:
+        Nume: &nbsp;
+        <input type="text" name="nume" placeholder="Nume persoana" />&nbsp;
+        Telefon: &nbsp;
         <input type="text" name="phone" placeholder="Numar de telefon" /><br />
-        <div>
+        <div>&nbsp;
             <input type="submit" onclick="showTable()" value = "ADAUGA CONTACT" />
         </div>
     </form><br />
-    <table id="list" style="border-collapse: collapse;">
+    <table id="list" class="hidden" style="border-collapse: collapse;">
         <thead style="width: 100%">
             <tr>
-                <th style="width: 40%">Nume</th>
+                <th style="width: 40%"  >Nume</th>
                 <th style="width: 35%">Numar</th>
                 <th>Editare</th>
             </tr>

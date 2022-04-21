@@ -65,5 +65,17 @@ function adauga(event) {
 
 function showTable() {
     document.querySelector("#list").classList.remove("hidden");
-    document.querySelector("#form").classList.add("hidden");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

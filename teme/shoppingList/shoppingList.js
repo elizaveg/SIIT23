@@ -20,6 +20,8 @@ let state = {
         },
     ],
 idxEdit:null,
+sortColumn: null,
+sortDirection: 1,
 };
 
 function draw(){
@@ -67,4 +69,11 @@ function showMarked(idx) {
     state.idxEdit = idx;
 }
 
+function showTable() {
+    document.querySelector("#list").classList.remove("hidden");
+}
 
+function sortTable(column) {
+
+    state.list.sort();
+}

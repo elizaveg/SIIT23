@@ -14,13 +14,12 @@ form {
     box-sizing: border-box;
 }
 table {
-    width: 50%;
     flex-direction: row;
     margin:auto;
 }
-
-
-
+.hidden {
+    display: none;
+}
 .completed {
   text-decoration: line-through;
 }
