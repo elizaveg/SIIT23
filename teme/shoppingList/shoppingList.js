@@ -33,7 +33,7 @@ function draw(){
             <tr>
                 <td>${elem.product}</td>
                 <td>
-                    <button onclick="showMarked(${i})">Mark as buyed</button>
+                    <button onclick="showMarked(${i})"> Mark as buyed </button>
                 </td>
             </tr>
             `;
@@ -59,21 +59,45 @@ function adauga(event) {
 }
 
 function showMarked(idx) {
-    let elem = state.list[idx];
-    document.querySelector("[name='product']").value = elem.product;
-    if(state.idxEdit=== "none") {
-        state.idxEdit.toggle("comleted", false)
-    } else {
-        state.idxEdit.toggle("completed", true)
-    }
-    state.idxEdit = idx;
+    document.querySelector("tbody").classList.add("completed");
 }
 
 function showTable() {
     document.querySelector("#list").classList.remove("hidden");
 }
 
-function sortTable(column) {
-
-    state.list.sort();
+function sortTableasc(column) {
+//    state.list.sort(compareProduct);
+/*function compare(a,b) {
+    return a-b;
+}*/
+state.list.sort(function (a, b) {
+//function compareProduct(a,b){
+if (a[column] < b[column]) {
+    return 1;
+} else if (a[column] > b[column]) {
+    return -1;
+} else {
+    return 0;
+  }
+});
+  draw();
 }
+
+function sortTabledesc(column) {
+    //    state.list.sort(compareProduct);
+    /*function compare(a,b) {
+        return a-b;
+    }*/
+    state.list.sort(function (a, b) {
+    //function compareProduct(a,b){
+    if (a[column] < b[column]) {
+        return -1;
+    } else if (a[column] > b[column]) {
+        return 1;
+    } else {
+        return 0;
+      }
+    });
+      draw();
+    }

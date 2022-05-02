@@ -15,23 +15,23 @@
         </div>
         <button onclick="showTable()">Add item</button>
     </form><br />
-        <div>
-            <button style="width: 20%" onclick="sortTable('product')"> Sort asc </button>
+        <div style="display: flex; justify-content: center;">
+            <button style="width: 10%" onclick="sortTableasc('product')"> Sort asc </button>
             <span class="sortDirection"></span> &nbsp;
-            <button style="width: 20%" onclick="sortTable('product')"> Sort desc </button>
+            <button style="width: 10%" onclick="sortTabledesc('product')"> Sort desc </button>
             <span class="sortDirection"></span>
         </div>
         <br />
-    <table id="list" class="hidden" border="1" style="border-collapse: collapse;">
-        <thead style="width: 100%">
+    <table id="list" class="hidden">
+        <thead style="width: 200px">
             <tr>
                 <div>
                     <th style="width: 30%" >Item description</th>
-                    <th >Action</th> 
+                    <th style="width: 30%">Action</th> 
                 </div>
             </tr>
         </thead>
-        <tbody style="justify-content: center";></tbody>
+        <tbody style="justify-content: center"></tbody>
     </table>
 </body>
 <script src="shoppingList.js"></script>
