@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Restaurantul meu</title>
+
     <link rel="stylesheet" href="loading.css" />
     <style>
       .menu-item {
@@ -16,11 +17,11 @@
       }
       .menu-img img {
         max-width: 100%;
-        max-height: 300px;
+        max-height: 100px;
       }
       .menu-img {
-        width: 300px;
-        max-height: 300px;
+        width: 100px;
+        max-height: 100px;
         text-align: center;
       }
       .menu-description {
@@ -46,13 +47,13 @@
       }
     </style>
     <script>
-      let lista = {};
+      let lista = [];
 
       let url =
         "https://restaurantul-meu-49822-default-rtdb.europe-west1.firebasedatabase.app/";
 
       async function getLista() {
-        //aici afisez loading 
+        //aici afisez loading
 
         document.querySelector("#loading").classList.remove("hidden");
 
@@ -68,10 +69,10 @@
         let cuvantCautat = document.querySelector('[name="search"]').value;
 
         var str = "";
+        //for(let i=0;i<lista.length;i++){
         for (let [i, preparat] of Object.entries(lista)) {
-          if (preparat === null) {
-            continue;
-          }
+          let ingrediente = preparat.ingrediente;
+
           let poza;
           if (preparat.imagine === undefined) {
             poza =
@@ -79,22 +80,39 @@
           } else {
             poza = preparat.imagine;
           }
-          if (preparat.ingrediente.includes(cuvantCautat)) {
+          if (ingrediente.includes(cuvantCautat)) {
             str += `
-						<div id="prep_${i}" class="menu-item">
+						<div class="menu-item">
 							<div class="menu-img">
 								<img src="${poza}" />
 							</div>
 							<div class="menu-description">
 								<div>${preparat.nume}</div>
-								<div>${preparat.ingrediente}</div>
+								<div>${ingrediente}</div>
 							</div>
-							<a href="detalii.html?id=${i}" ><button>Detalii</button></a>
+							<a href="edit.html?id=${i}" ><button>Editeaza</button></a>
+							<a href="delete.html?id=${i}" ><button>Sterge</button></a>
 						</div>
 					`;
           }
         }
         document.querySelector("#menu-list").innerHTML = str;
+      }
+      function cauta() {
+        let cuvantCautat = document.querySelector('[name="search"]').value;
+        let menuItems = document.querySelectorAll(".menu-item");
+
+        for (let i = 0; i < menuItems.length; i++) {
+          let menuItem = menuItems[i];
+          let text = menuItem.querySelector(
+            ".menu-description div:nth-child(2)"
+          ).innerText;
+          if (!text.includes(cuvantCautat)) {
+            menuItem.classList.add("hidden");
+          } else {
+            menuItem.classList.remove("hidden");
+          }
+        }
       }
     </script>
   </head>
@@ -103,12 +121,10 @@
       <div></div>
       <div></div>
     </div>
-
-    <header><h1>Cald si Bun</h1></header>
     <section>
-      <input type="text" name="search" oninput="draw();" />
-      <button onclick="draw();">Cauta in ingrediente</button>
+      <input type="text" name="search" onkeyup="cauta();" />
     </section>
-    <section id="menu-list"></section> 
+    <header><h1>Cald si Bun</h1></header>
+    <section id="menu-list"></section>
   </body>
 </html>

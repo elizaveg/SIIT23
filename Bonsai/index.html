@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonsai</title>
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js">
+    </script>
+
+</head>
+<body onload="getData();">
+    <header id="main-navigation">
+        <img src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg" width="170" alt="bonsai-logo">
+        <span style="align-items: center; margin: auto;">
+            <input type="search" class="inp-design"placeholder="Search for items" name="input">
+            <button onclick="draw();">Search</button>
+        </span>
+        <button style="float:right;">❤️</button>
+        <button style="float:right;">🛒</button>
+    </header>
+    <div id="categories" >
+        <ul>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Jewelry & Accessories</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Clothing & Shoes</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Home & Living</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Toys & Entertainment</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Art & Tools</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Vintage</a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </li>
+        </ul>
+        
+    </div>
+    <br />
+    <div id="product" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 24px;">
+        
+    </div>
+    <footer>
+        Contact Us
+        Adress
+    </footer>
+</body>
+</html>
