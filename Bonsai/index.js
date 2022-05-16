@@ -47,7 +47,7 @@ bonsaiDataText.innerHTML = str;
   
 function searchItem() {
   let input = document.querySelector('[name="input"]').value;
-  input = input.toLowerCase();
+  //input = input.toLowerCase();
   let items = document.querySelectorAll(".box");
 
   for (let i = 0; i < items.length; i++) {
@@ -55,10 +55,13 @@ function searchItem() {
     let text = item.querySelector(".itemName").innerText;
     if (!text.includes(input)) {
       item.classList.add("hidden");
-      item.classList.remove("no_items");
+      document.querySelector("#no_items").classList.remove("hidden");
+      //show no_items
+
     } else {
       item.classList.remove("hidden");
-      item.classList.add("no_items");
+      document.querySelector("#no_items").classList.add("hidden");
+    
     }
   }
 }
