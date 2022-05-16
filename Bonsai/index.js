@@ -17,7 +17,6 @@ let state = {
       5: "Vintage",
     },
 
-
     bonsaiDatabase: "https://bonsai-d465c-default-rtdb.europe-west1.firebasedatabase.app/",
 }
 let bonsaiData = {};
@@ -55,13 +54,12 @@ function searchItem() {
     let text = item.querySelector(".itemName").innerText;
     if (!text.includes(input)) {
       item.classList.add("hidden");
-      document.querySelector("#no_items").classList.remove("hidden");
       //show no_items
-
+      document.querySelector("#no_items").classList.remove("hidden");
     } else {
       item.classList.remove("hidden");
+      //hide no_items
       document.querySelector("#no_items").classList.add("hidden");
-    
     }
   }
 }

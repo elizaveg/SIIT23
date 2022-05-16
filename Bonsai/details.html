@@ -17,21 +17,15 @@
             display: flex;
             flex-direction: row;
         }
-
-    </style>
-    <style>
-
     </style>
     <script>
         let data = {};
         let url = "https://bonsai-d465c-default-rtdb.europe-west1.firebasedatabase.app/";
-
         let index = window.location.search.substring(4);
 
         async function getDetails() {
           const response = await fetch(url+index+".json");
           curentItem = await response.json();
-          
           let curentItemText = document.querySelector("#curentDetails");
           var str = "";
           str += ` 
@@ -55,8 +49,7 @@
 <body onload="getDetails();">
     <header id="main-navigation">
         <a href="index.html">
-            <img src="https://assets-global.website-files.com/
-58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg" width="170" alt="bonsai-logo">
+            <img src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg" width="170" alt="bonsai-logo">
         </a>
         <span style="align-items: center; margin: auto;">
             <input type="search" class="inp-design"placeholder="Search for items" name="input">
@@ -123,7 +116,13 @@
     </div>
     <main id="curentDetails">
     </main>
-    
-    
+    <footer>
+      About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic autem tempora quasi quis 
+      beatae corporis sint quaerat id, dolore quae veniam, mollitia deserunt, ut sunt fugit voluptas. 
+      Quam, amet enim!
+      Contact Us: 0398475574
+      Adress: sbowiwibpwnfpiewb
+      Facebook
+  </footer>
 </body>
 </html>

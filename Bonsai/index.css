@@ -104,6 +104,10 @@ body a {
 .hidden {
   display: none !important;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+}
 
 
 
