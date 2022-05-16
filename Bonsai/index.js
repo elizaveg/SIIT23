@@ -14,8 +14,9 @@ let state = {
       2: "Home & Living",
       3: "Toys & Entertainment",
       4: "Art & Tools",
-      4: "Vintage",
+      5: "Vintage",
     },
+
 
     bonsaiDatabase: "https://bonsai-d465c-default-rtdb.europe-west1.firebasedatabase.app/",
 }
@@ -28,19 +29,36 @@ async function getData() {
     var str = "";
     for (let [i, data] of Object.entries(bonsaiData)) {
     str += `
-         <div class="box col-xs-12 col-md-4 col-lg-3">
-            <div class="items">
-             <h3>${data["item-name"]}</h3>
-             <hr>
-             <div class="item-img">
-                <img src="${data.photo}"/><br />
-             </div>
-             <div>${data.price} €</div><br />
-           </div>
+         <div class="box col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <a href="details.html?id=${i}">
+               <div class="items">
+                <div class="item-img">
+                   <img src="${data.photo}"/><br />
+                </div>
+                <h3 class="itemName">${data["item-name"]}</h3>
+                <div>${data.price} €</div><br />
+              </div>
+            </a>
         </div>
     `;
 }
-
 bonsaiDataText.innerHTML = str;
 }
   
+function searchItem() {
+  let input = document.querySelector('[name="input"]').value;
+  input = input.toLowerCase();
+  let items = document.querySelectorAll(".box");
+
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    let text = item.querySelector(".itemName").innerText;
+    if (!text.includes(input)) {
+      item.classList.add("hidden");
+      item.classList.remove("no_items");
+    } else {
+      item.classList.remove("hidden");
+      item.classList.add("no_items");
+    }
+  }
+}
