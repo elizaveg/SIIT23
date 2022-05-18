@@ -25,15 +25,39 @@ body {
     min-height: 300px;
     padding: 10px;
     }
+.search-bar {
+    size: 60px;
+    border: 2px solid #00b289;
+    align-items: center; 
+    margin: auto; 
+    display: flex;
+    border-radius: 50px;
+    height: var(--size);
+    width: var(--size);
+    padding: 3px;
 
+}
 .inp-design {
+    flex-grow: 1;
+    font-size: 1rem;
     width: 500px;
     border-radius: 50px;
+    border: 0;
     height: 30px;
     text-align: center;
-    border-color: #00b289;
     margin: auto;
-
+    padding: 0 0.5em;
+    
+}
+.search-button {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    border-radius: 100vh;
+    background: #00b289;
+    width: calc(var(--size) - 10px);
+    height: calc(var(--size) - 10 px);
+    margin-left: auto;
 }
 ul {
     list-style-type: none;
@@ -43,22 +67,22 @@ ul {
     background-color: white;
   }
   
-  li {
+li {
     float: left;
   }
   
-  li a, .dropbtn {
+li a, .dropbtn {
     display: inline-block;
     color: #00b289;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
-  li.dropdown {
+li.dropdown {
     display: inline-block;
   }
   
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -67,7 +91,7 @@ ul {
     z-index: 1;
   }
   
-  .dropdown-content a {
+.dropdown-content a {
     color: #00b289;
     padding: 12px 16px;
     text-decoration: none;
@@ -75,12 +99,12 @@ ul {
     text-align: left;
   }
   
-  .dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {background-color: #f1f1f1;}
   
-  .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
   }
-  .items {
+.items {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -89,12 +113,12 @@ ul {
     background: #fff;
     padding: 10px;
   }
-  .item-img {
+.item-img {
     max-width: 100%;
     display: flex;
     flex-direction: row;
   }
-  img {
+img {
     max-width: inherit;
     max-height:300px;
   }
@@ -104,30 +128,29 @@ body a {
 .hidden {
   display: none !important;
 }
+
+#no_items {
+    color: #00b289;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 390px;
+    font-size: 1rem;
+}
 .footer {
   position: fixed;
   bottom: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.content-box {
+    width: 400px;
+}
+.content-title,
+.content-details,
+.content-subtotal {
+    box-sizing: border-box;
+    width: 100%;
+    border: solid #00b289 5px;
+    padding: 5px;
+}
 

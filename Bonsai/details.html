@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalii</title>
+    <title>Details</title>
     <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="index.css">
     <style>
@@ -39,7 +39,9 @@
                 <div>${curentItem["price"]} €</div>
             </div>
           </div>
-          
+          <a href="cart.html?id=${curentItem}">
+            <button>Add to cart</button>
+          </a>
           `;
           curentItemText.innerHTML = str;
         }
@@ -51,9 +53,19 @@
         <a href="index.html">
             <img src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg" width="170" alt="bonsai-logo">
         </a>
-        <span style="align-items: center; margin: auto;">
-            <input type="search" class="inp-design"placeholder="Search for items" name="input">
-            <button onclick="draw();">Search</button>
+        <span class="search-bar">
+            <input 
+            type="search" 
+            class="inp-design"
+            placeholder="Search for items" 
+            name="input"
+            onkeyup="searchItem();"
+            />
+            <button 
+            class="search-button"
+            onclick="draw();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+            </button>
         </span>
         <button style="float:right;">❤️</button>
         <button style="float:right;">🛒</button>
@@ -112,11 +124,17 @@
                 </div>
             </li>
         </ul>
-        
     </div>
+    <br />
     <main id="curentDetails">
     </main>
-    <button>Add to cart</button>
+    <div>
+        
+        
+        
+
+    </div>
+    
     <footer>
       About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic autem tempora quasi quis 
       beatae corporis sint quaerat id, dolore quae veniam, mollitia deserunt, ut sunt fugit voluptas. 
@@ -124,6 +142,6 @@
       Contact Us: 0398475574
       Adress: sbowiwibpwnfpiewb
       Facebook
-  </footer>
+    </footer>
 </body>
 </html>
