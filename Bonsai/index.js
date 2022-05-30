@@ -65,3 +65,85 @@ function searchItem() {
     }
   }
 }
+let product = {};
+let index = window.location.search.substring(4);
+
+async function getDetails() {
+  const response = await fetch(state.bonsaiDatabase + index + ".json");
+  curentItem = await response.json();
+  let curentItemText = document.querySelector("#curentDetails");
+  var str = "";
+  str += `
+    <div>
+      <h3>${curentItem["item-name"]}</h3>
+      <div>
+          <div class="item-img">
+            <img src="${curentItem.photo}"/><br />
+          </div>
+          <div>${curentItem["description"]}</div>
+          <div>${curentItem["price"]} €</div>
+      </div>
+    </div>
+    <input type="number" name="quantity" />
+    <a href="cart.html">
+      <button class="shop-item-button" onclick="addItem()">Add to cart</button>
+    </a>
+    `;
+  curentItemText.innerHTML = str;
+
+}
+function addItem() {
+  let itemID = index;
+  let quantity = document.querySelector("[name=quantity]").value;
+  quantity = Number(quantity);
+  if (isNaN(quantity) || quantity <= 0) {
+    document.querySelector("[name=quantity]").classList.add("invalid");
+    alert("Nu e cantitate buna!");
+    return;
+  }
+  let product = {
+    itemID: itemID,
+    photo: curentItem.photo,
+    name: curentItem["item-name"],
+    price: curentItem["price"],
+    quantity: quantity,
+  };
+  let cart = localStorage.getItem("cart");
+  if (cart === null) {
+    cart = [];
+  } else {
+    cart = JSON.parse(cart);
+  }
+  let found = false;
+  for (let p of cart) {
+    if (p.itemID === product.itemID) {
+      p.quantity += product.quantity;
+      found = true;
+    }
+  }
+  if (!found) {
+    cart.push(product);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+}
+
+function displayCart() {
+  let cartItems = localStorage.getItem("cart");
+  cartItems = JSON.parse(cartItems);
+  let productContainer = document.querySelector(".products-container");
+  console.log(cartItems);
+  if (cartItems && productContainer) {
+    productContainer.innerHTML = '';
+    Object.values(cartItems).map(item => {
+      productContainer.innerHTML += `
+      <div class="product">x
+        <img src="${product.photo}" />
+        <span>${product.name}</span>
+        <div class="price">${product.price} </div>
+      </div>
+        `;
+    });
+  }
+}
+

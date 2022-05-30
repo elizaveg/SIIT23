@@ -19,31 +19,7 @@
         flex-direction: row;
       }
     </style>
-    <script>
-      let data = {};
-      let index = window.location.search.substring(4);
-
-      async function getDetails() {
-        const response = await fetch(state.bonsaiDatabase + index + ".json");
-        curentItem = await response.json();
-        let curentItemText = document.querySelector("#curentDetails");
-        var str = "";
-        str += ` 
-          <div>
-            <h3>${curentItem["item-name"]}</h3> 
-            <div>
-                <div class="item-img">
-                  <img src="${curentItem.photo}"/><br />
-                </div>
-                <div>${curentItem["description"]}</div>
-                <div>${curentItem["price"]} €</div>
-            </div>
-          </div>
-          <button class="shop-item-button" onclick="addingItem()">Add to cart</button>
-          `;
-        curentItemText.innerHTML = str;
-      }
-    </script>
+    <script></script>
   </head>
   <body onload="getDetails();">
     <header id="main-navigation">

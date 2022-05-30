@@ -8,26 +8,11 @@
     <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js"></script>
-    <script>
-      let cartdata = {};
-
-      async function addingItem() {
-        const response = await fetch(state.bonsaiDatabase + ".json");
-        cart = await response.json();
-        let cartText = document.querySelector("#myBag");
-        var str = "";
-        str += `
-            <div>${cart["price"]} €</div>
-            `;
-        cartText.innerHTML = str;
-      }
-    </script>
   </head>
-  <body onload="addingItem();">
+  <body onload="displayCart();">
     <header id="main-navigation">
       <img
-        src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/
-5e5fd7c602ca7cd432feb68e_bonsai-logo.svg"
+        src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg"
         width="170"
         alt="bonsai-logo"
       />
@@ -112,7 +97,8 @@
       </ul>
     </div>
     <br />
-    <div id="myBag">My cart items</div>
+    <div id="myBag" class="products-container">My cart items</div>
+    <div class="products"></div>
 
     <div id="no_items" class="hidden">
       <svg
