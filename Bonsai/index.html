@@ -3,8 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bonsai</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/58868bcd2ef4daaf0f072927_favicon-32x32.jpg"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="loading.css" />
     <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js"></script>
@@ -40,6 +52,7 @@
       <a href="cart.html">
         <button style="float: right">🛒</button>
       </a>
+      &#160;
       <a href="admin.html">
         <button style="float: right">Admin</button>
       </a>
@@ -96,7 +109,120 @@
         </li>
       </ul>
     </div>
+    <span class="loading centered"></span>
     <br />
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-label="Slide 1"
+          aria-current="true"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+          class=""
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+          class=""
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <svg
+            class="bd-placeholder-img"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <rect width="100%" height="100%" fill="#777"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>When you buy handmade you support a dream!</h1>
+              <p>
+                Real person is behind it all, someone who cares more about
+                giving a quality product, over just taking our hand earned
+                dollars.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg
+            class="bd-placeholder-img"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <rect width="100%" height="100%" fill="#777"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Support small. Support local. Support makers.</h1>
+              <p>
+                Don't buy goods and services, buy relations, stories, and magic.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg
+            class="bd-placeholder-img"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <rect width="100%" height="100%" fill="#777"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>Small business. Big heart</h1>
+              <p>
+                All success starts with one. One step. One client. One order.
+                One sale
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
     <div
       id="product"
       style="
@@ -126,5 +252,10 @@
       veniam, mollitia deserunt, ut sunt fugit voluptas. Quam, amet enim!
       Contact Us: 0398475574 Adress: sbowiwibpwnfpiewb Facebook
     </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

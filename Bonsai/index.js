@@ -23,8 +23,18 @@ let state = {
 let bonsaiData = {};
 
 async function getData() {
+  //add loading 
+  document.querySelector(".loading").classList.remove("hidden");
+  document.querySelector("#myCarousel").classList.add("hidden");
+  document.querySelector("footer").classList.add("hidden");
+
   const response = await fetch(state.bonsaiDatabase + ".json");
   bonsaiData = await response.json();
+
+  document.querySelector(".loading").classList.add("hidden");
+  document.querySelector("#myCarousel").classList.remove("hidden");
+  document.querySelector("footer").classList.remove("hidden");
+
   let bonsaiDataText = document.querySelector("#product");
   var str = "";
   for (let [i, data] of Object.entries(bonsaiData)) {
@@ -33,7 +43,7 @@ async function getData() {
             <a href="details.html?id=${i}">
                <div class="items">
                 <div class="item-img">
-                   <img src="${data.photo}"/><br />
+                   <img src="${data.photo}"/>
                 </div>
                 <h3 class="itemName">${data["item-name"]}</h3>
                 <div>${data.price} €</div><br />
@@ -69,25 +79,37 @@ let product = {};
 let index = window.location.search.substring(4);
 
 async function getDetails() {
+
+  document.querySelector(".loading").classList.remove("hidden");
+  document.querySelector("footer").classList.add("hidden");
+
   const response = await fetch(state.bonsaiDatabase + index + ".json");
   curentItem = await response.json();
+
+  document.querySelector(".loading").classList.add("hidden");
+  document.querySelector("footer").classList.remove("hidden");
+
   let curentItemText = document.querySelector("#curentDetails");
   var str = "";
   str += `
-    <div>
-      <h3>${curentItem["item-name"]}</h3>
-      <div>
+      <div class="details-content">
           <div class="item-img">
             <img src="${curentItem.photo}"/><br />
           </div>
-          <div>${curentItem["description"]}</div>
-          <div>${curentItem["price"]} €</div>
+          <div class="text-details">
+            <div class="details-text">
+              <h3>${curentItem["item-name"]}</h3>
+              <div>${curentItem["description"]}</div>
+              <div class="price">${curentItem["price"]} €</div>
+            </div>
+            <div class="detais-input">
+              <input type="number" name="quantity" />
+              <a href="cart.html">
+                <button class="shop-item-button" onclick="addItem()">Add to cart</button>
+              </a>
+            </div>
+          </div>
       </div>
-    </div>
-    <input type="number" name="quantity" />
-    <a href="cart.html">
-      <button class="shop-item-button" onclick="addItem()">Add to cart</button>
-    </a>
     `;
   curentItemText.innerHTML = str;
 
@@ -135,12 +157,13 @@ function displayCart() {
   console.log(cartItems);
   if (cartItems && productContainer) {
     productContainer.innerHTML = '';
-    Object.values(cartItems).map(item => {
+    Object.values(cartItems).map(product => {
       productContainer.innerHTML += `
-      <div class="product">x
-        <img src="${product.photo}" />
+      <div class="product">
+        <div>&nbsp; x &nbsp;&nbsp;</div>
+        <img src="${product.photo}" />&nbsp;
         <span>${product.name}</span>
-        <div class="price">${product.price} </div>
+        <div class="price">${product.price} </div>&nbsp;
       </div>
         `;
     });

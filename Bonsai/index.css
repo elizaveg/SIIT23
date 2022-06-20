@@ -99,7 +99,9 @@ li.dropdown {
     text-align: left;
   }
   
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
   
 .dropdown:hover .dropdown-content {
     display: block;
@@ -117,6 +119,7 @@ li.dropdown {
     max-width: 100%;
     display: flex;
     flex-direction: row;
+    margin-right: 10px;
   }
 img {
     max-width: inherit;
@@ -153,4 +156,54 @@ body a {
     border: solid #00b289 5px;
     padding: 5px;
 }
-
+.carousel-item {
+  height: 32rem;
+  background: #777;
+  color: white;
+  position: relative;
+}
+.container{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 50px;
+}
+#myBag {
+  width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.product {
+  display: flex;
+  border: 2px solid black;
+}
+.product img {
+  height: 100px;
+  
+}
+.hidden {
+  display: none !important;
+}
+.details-content{
+  display: flex;
+}
+button:not(.search-button) {
+    padding: 6px 15px;
+    border-radius: 4px;
+    background-color: #00b289;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .7px;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: auto;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+}
+.itemName {
+  font-size: medium;
+  padding: inherit;
+}
