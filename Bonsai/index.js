@@ -2,11 +2,9 @@ let state = {
   search: {
     title: "",
     category: "",
-    tags: "",
   },
   idxEdit: null,
-  sortColumn: null,
-  sortDirection: 1, //1 e asc, -1 e desc
+  inCart: 0,
 
   category: {
     0: "Jewelry & Accessories",
@@ -27,6 +25,7 @@ async function getData() {
   document.querySelector(".loading").classList.remove("hidden");
   document.querySelector("#myCarousel").classList.add("hidden");
   document.querySelector("footer").classList.add("hidden");
+  document.querySelector(".pagination").classList.add("hidden");
 
   const response = await fetch(state.bonsaiDatabase + ".json");
   bonsaiData = await response.json();
@@ -34,6 +33,7 @@ async function getData() {
   document.querySelector(".loading").classList.add("hidden");
   document.querySelector("#myCarousel").classList.remove("hidden");
   document.querySelector("footer").classList.remove("hidden");
+  document.querySelector(".pagination").classList.remove("hidden");
 
   let bonsaiDataText = document.querySelector("#product");
   var str = "";
@@ -45,7 +45,7 @@ async function getData() {
                 <div class="item-img">
                    <img src="${data.photo}"/>
                 </div>
-                <h3 class="itemName">${data["item-name"]}</h3>
+                <h3 class="itemName">${data.itemName}</h3>
                 <div>${data.price} €</div><br />
               </div>
             </a>
@@ -68,10 +68,14 @@ function searchItem() {
       item.classList.add("hidden");
       //show no_items
       document.querySelector("#no_items").classList.remove("hidden");
+      document.querySelector("#myCarousel").classList.add("hidden");
+      document.querySelector(".pagination").classList.add("hidden");
     } else {
       item.classList.remove("hidden");
       //hide no_items
       document.querySelector("#no_items").classList.add("hidden");
+      document.querySelector("#myCarousel").classList.remove("hidden");
+      document.querySelector(".pagination").classList.remove("hidden");
     }
   }
 }
@@ -98,7 +102,7 @@ async function getDetails() {
           </div>
           <div class="text-details">
             <div class="details-text">
-              <h3>${curentItem["item-name"]}</h3>
+              <h3>${curentItem.itemName}</h3>
               <div>${curentItem["description"]}</div>
               <div class="price">${curentItem["price"]} €</div>
             </div>
@@ -112,12 +116,14 @@ async function getDetails() {
       </div>
     `;
   curentItemText.innerHTML = str;
-
 }
+
 function addItem() {
   let itemID = index;
   let quantity = document.querySelector("[name=quantity]").value;
   quantity = Number(quantity);
+
+  //if quantity is lower than 1
   if (isNaN(quantity) || quantity <= 0) {
     document.querySelector("[name=quantity]").classList.add("invalid");
     alert("Nu e cantitate buna!");
@@ -126,7 +132,7 @@ function addItem() {
   let product = {
     itemID: itemID,
     photo: curentItem.photo,
-    name: curentItem["item-name"],
+    name: curentItem.itemName,
     price: curentItem["price"],
     quantity: quantity,
   };
@@ -150,23 +156,34 @@ function addItem() {
   displayCart();
 }
 
+let cart = document.querySelectorAll('#product');
+for (let i = 0; i < cart.lenght; i++) {
+  carts[i].addEventListener('click', () => {
+    cartNumbers();
+  })
+}
+
+
 function displayCart() {
   let cartItems = localStorage.getItem("cart");
   cartItems = JSON.parse(cartItems);
+
   let productContainer = document.querySelector(".products-container");
   console.log(cartItems);
   if (cartItems && productContainer) {
     productContainer.innerHTML = '';
     Object.values(cartItems).map(product => {
       productContainer.innerHTML += `
-      <div class="product">
-        <div>&nbsp; x &nbsp;&nbsp;</div>
-        <img src="${product.photo}" />&nbsp;
-        <span>${product.name}</span>
-        <div class="price">${product.price} </div>&nbsp;
+      <div class="product grid-container">
+          <button class="grid-item1">&nbsp; ✖️ &nbsp;&nbsp;</button>
+          <img src="${product.photo}" class="grid-item2"/>&nbsp;
+          <span class="grid-item3">${product.name}</span>
+          <div class="quantity grid-item4">${product.quantity}</div>&nbsp;
+          <div class="price grid-item5">${product.price} </div>&nbsp;
+          <div class="total grid-item6">$${product.quantity * product.price},00</div>
       </div>
+      <hr />
         `;
     });
   }
 }
-

@@ -103,7 +103,7 @@ li.dropdown {
     display: block;
     text-align: left;
   }
-
+  
 .items {
     display: flex;
     align-items: center;
@@ -161,14 +161,6 @@ body a {
     border: solid #00b289 5px;
     padding: 5px;
 }
-.carousel-item {
-  height: 32rem;
-  background: #777;
-  color: white;
-  position: relative;
-  background-position: center;
-  background-size: cover;
-}
 .container{
   position: absolute;
   bottom: 0;
@@ -176,14 +168,7 @@ body a {
   right: 0;
   padding-bottom: 50px;
 }
-#myBag {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
 .product {
-  display: flex;
   border: 2px solid black;
 }
 .product img {
@@ -196,7 +181,7 @@ body a {
 .details-content{
   display: flex;
 }
-button:not(.search-button):not(.carousel-control-next):not(.carousel-control-prev) {
+button:not(.search-button):not(.carousel-control-next):not(.carousel-control-prev):not(.grid-item1) {
     padding: 6px 15px;
     border-radius: 4px;
     background-color: #00b289;
@@ -213,4 +198,30 @@ button:not(.search-button):not(.carousel-control-next):not(.carousel-control-pre
 .itemName {
   font-size: medium;
   padding: inherit;
+}
+.grid-container {
+    display: flex;
+    margin: 5px;
+    border: none;
+}
+.grid-item{
+    display: flex;
+    margin: 5px;
+}
+.grid-item1,.grid-item2, .grid-item3, .grid-item4, .grid-item5, .grid-item6
+{
+    margin: 5px;
+}
+.grid-item1{
+    max-width: 40px;
+    max-height: 40px;
+}
+.grid-item2{
+    max-width: 170px;
+}
+.grid-item3{
+    flex: 1;
+}
+.grid-item4, .grid-item5, .grid-item6{
+    width: 80px;
 }

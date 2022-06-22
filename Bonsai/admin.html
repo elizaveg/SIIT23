@@ -4,13 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Admin</title>
+    <style>
+      header button {
+        float: right !important;
+        margin-left: 550px;
+      }
+    </style>
     <link
-      href="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/
-58868bcd2ef4daaf0f072927_favicon-32x32.jpg"
+      href="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/58868bcd2ef4daaf0f072927_favicon-32x32.jpg"
       rel="shortcut icon"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="loading.css" />
+    <link rel="stylesheet" href="grid.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body></body>
+  <body onload="getData();">
+    <header id="main-navigation">
+      <img
+        src="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/5e5fd7c602ca7cd432feb68e_bonsai-logo.svg"
+        width="170"
+        alt="bonsai-logo"
+      />
+      <a href="index.html" style="float: right">
+        <button style="float: right">Back to main</button>
+      </a>
+    </header>
+    <span class="loading centered"></span>
+    <div class="box col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <h3>Add a new product</h3>
+      <form class="items" onsubmit="addNewProduct(event);">
+        <div class="item-img">
+        <input type="text" name="photo" placeholder="URL image" />
+        </div>
+        <input type="text" name="itemName" placeholder="Item name" />
+        <input type="text" name="price" placeholder="Price" />
+        <br />
+        <input type="text" name="stoc" placeholder="Stoc" />
+        <br />
+        <textarea
+          type="text"
+          name="description"
+          placeholder="Item description"
+        /></textarea>
+        <br />
+        <div>
+          <input type="submit" value="Save" />
+          <input type="submit" value="Cancel" />
+        </div>
+      </form>
+    </div>
+    <div
+      id="product"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        padding: 24px;
+      "
+    ></div>
+    <script src="admin.js"></script>
+  </body>
 </html>

@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="loading.css" />
     <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="pagination.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <script src="index.js"></script>
   </head>
   <body onload="getData();">
@@ -28,7 +33,14 @@
         width="170"
         alt="bonsai-logo"
       />
-      <span class="search-bar">
+      <a href="cart.html" style="float: right">
+        <button style="float: right">🛒</button>
+      </a>
+      &#160;
+      <a href="admin.html" style="float: right">
+        <button style="float: right">Admin</button>
+      </a>
+      <div class="search-bar">
         <input
           type="search"
           class="inp-design"
@@ -48,64 +60,27 @@
             ></path>
           </svg>
         </button>
-      </span>
-      <a href="cart.html">
-        <button style="float: right">🛒</button>
-      </a>
-      &#160;
-      <a href="admin.html">
-        <button style="float: right">Admin</button>
-      </a>
+      </div>
     </header>
     <div id="categories">
       <ul>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Jewelry & Accessories</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Clothing & Shoes</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Home & Living</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Toys & Entertainment</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Art & Tools</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Vintage</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
       </ul>
     </div>
@@ -137,18 +112,10 @@
         ></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <svg
-            class="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+        <div
+          class="carousel-item active"
+          style="background-image: url(pics/slide-1.jpg)"
+        >
           <div class="container">
             <div class="carousel-caption text-start">
               <h1>When you buy handmade you support a dream!</h1>
@@ -160,18 +127,10 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <svg
-            class="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+        <div
+          class="carousel-item"
+          style="background-image: url(pics/slide-2.jpg)"
+        >
           <div class="container">
             <div class="carousel-caption">
               <h1>Support small. Support local. Support makers.</h1>
@@ -181,18 +140,10 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <svg
-            class="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+        <div
+          class="carousel-item"
+          style="background-image: url(pics/slide-4.jpg)"
+        >
           <div class="container">
             <div class="carousel-caption text-end">
               <h1>Small business. Big heart</h1>
@@ -246,6 +197,24 @@
       </svg>
       <div>No items</div>
     </div>
+    <div class="pagination">
+      <ul>
+        <li></li>
+        <!--<li>
+          <span><i class="fas fa-angle-left"></i> Prev</span>
+        </li>
+        <li class="numb"><span>1</span></li>
+        <li class="numb"><span>2</span></li>
+        <li class="dots"><span>...</span></li>
+        <li class="numb"><span>4</span></li>
+        <li class="numb"><span>5</span></li>
+        <li class="dots"><span>...</span></li>
+        <li class="numb"><span>7</span></li>
+        <li>
+          <span>Next <i class="fas fa-angle-right"></i></span>
+        </li>-->
+      </ul>
+    </div>
     <footer>
       About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
       autem tempora quasi quis beatae corporis sint quaerat id, dolore quae
@@ -257,5 +226,6 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="pagination.js"></script>
   </body>
 </html>

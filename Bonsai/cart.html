@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My shopping bag</title>
     <link
-  href="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/
-58868bcd2ef4daaf0f072927_favicon-32x32.jpg"
-  rel="shortcut icon"
-  type="image/x-icon"
-/>
+      href="https://assets-global.website-files.com/58868bcd2ef4daaf0f072900/58868bcd2ef4daaf0f072927_favicon-32x32.jpg"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="grid.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="cart.css" />
     <script src="index.js"></script>
   </head>
   <body onload="displayCart();">
@@ -23,6 +22,10 @@
           width="170"
           alt="bonsai-logo"
         />
+      </a>
+      <a href="cart.html"> <button style="float: right">🛒</button> </a>&#160;
+      <a href="admin.html">
+        <button style="float: right">Admin</button>
       </a>
       <span class="search-bar">
         <input
@@ -45,69 +48,27 @@
           </svg>
         </button>
       </span>
-      <a href="cart.html">
-        <button style="float: right">🛒</button>
-      </a>&#160;
-      <a href="admin.html">
-        <button style="float: right">Admin</button>
-      </a>
     </header>
-    <div id="categories">
-      <ul>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Jewelry & Accessories</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Clothing & Shoes</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Home & Living</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Toys & Entertainment</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Art & Tools</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Vintage</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-      </ul>
+    <br />
+    <div style="margin: 20px">
+      <span><b>Your shopping bag</b></span>
+      <a href="index.html">
+        <button style="float: right">Continue shopping</button>
+      </a>
     </div>
     <br />
-    <div id="myBag" class="products-container">My cart items</div>
+    <div style="display: flex">
+      <b>
+        <span style="margin-left: 30px">Item</span>
+        <span style="margin-left: 950px">Quantity</span>
+        <span style="margin-left: 48px">Price</span>
+        <span style="margin-left: 70px">Total</span></b
+      >
+    </div>
+    <hr />
+    <div id="myBag" class="products-container">No items</div>
     <div class="products"></div>
-  </br>
+    <br />
     <div id="no_items" class="hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +81,6 @@
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         ></path>
       </svg>
-      <div>No items</div>
     </div>
     <footer>
       About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
