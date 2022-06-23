@@ -31,11 +31,13 @@
       if (index.length < 1) {
         window.location = "admin.html";
       }
+
       async function getLista() {
         const response = await fetch(url + index + ".json");
         preparat = await response.json();
         draw();
       }
+
       function draw() {
         document.querySelector("[name='nume']").value = preparat.nume;
         document.querySelector("[name='imagine']").value = preparat.imagine;

@@ -30,7 +30,7 @@ function draw() {
   for (let i = 0; i < state.list.length; i++) {
     let elem = state.list[i];
     str += `
-            <tr >
+            <tr>
                 <td>${elem.product}</td>
                 <td class="completed">
                     <button onclick="showMarked(${i})"> Mark as buyed </button>
@@ -38,7 +38,10 @@ function draw() {
             </tr>
             `;
     if (elem.marked === true) {
+      showMarked();
       draw();
+    } else {
+      continue;
     }
   }
   table.innerHTML = str;

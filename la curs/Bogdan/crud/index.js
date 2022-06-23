@@ -139,8 +139,10 @@ function draw() {
 }
 
 function edit(idx) {
-  showForm();
-
+  showForm(idx);
+  editForm(idx);
+}
+function editForm(idx) {
   let elem = state.list[idx];
   document.querySelector("[name='title']").value = elem.title;
   document.querySelector("[name='url']").value = elem.url;
@@ -236,15 +238,29 @@ function addTag() {
   );
 }
 
+window.addEventListener("popstate", (event) => {
+  console.log(event.state);
+
+  if (event.state === null || event.state.page === "table") {
+    document.querySelector("#list").classList.remove("hidden");
+    document.querySelector("#form").classList.add("hidden");
+  } else if (event.state.page === "form") {
+    document.querySelector("#list").classList.add("hidden");
+    document.querySelector("#form").classList.remove("hidden");
+    editForm(event.state.idxEdit);
+  }
+});
+
 function showTable() {
+  window.history.pushState({ page: "table" }, "", "#table");
   document.querySelector("#list").classList.remove("hidden");
   document.querySelector("#form").classList.add("hidden");
 }
-function showForm() {
+function showForm(idx) {
+  window.history.pushState({ page: "form", idxEdit: idx }, "", "#form");
   document.querySelector("#list").classList.add("hidden");
   document.querySelector("#form").classList.remove("hidden");
 }
-
 function resetForm() {
   document.querySelector("#form").reset();
   //delete the extra tag inputs
