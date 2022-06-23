@@ -97,15 +97,17 @@ async function getDetails() {
   var str = "";
   str += `
       <div class="details-content">
-          <div class="item-img">
+          <div class="item-img box">
             <img src="${curentItem.photo}"/><br />
           </div>
-          <div class="text-details">
+          <div class="text-details box">
             <div class="details-text">
               <h3>${curentItem.itemName}</h3>
               <div>${curentItem["description"]}</div>
-              <div class="price">${curentItem["price"]} €</div>
+              <br />
+              <div class="price">Price: ${curentItem["price"]} €</div>
             </div>
+            <br />
             <div class="detais-input">
               <input type="number" name="quantity" />
               <a href="cart.html">
@@ -156,34 +158,38 @@ function addItem() {
   displayCart();
 }
 
-let cart = document.querySelectorAll('#product');
-for (let i = 0; i < cart.lenght; i++) {
-  carts[i].addEventListener('click', () => {
-    cartNumbers();
-  })
-}
-
-
 function displayCart() {
   let cartItems = localStorage.getItem("cart");
   cartItems = JSON.parse(cartItems);
 
   let productContainer = document.querySelector(".products-container");
-  console.log(cartItems);
+  let s = 0;
   if (cartItems && productContainer) {
     productContainer.innerHTML = '';
+
     Object.values(cartItems).map(product => {
       productContainer.innerHTML += `
       <div class="product grid-container">
-          <button class="grid-item1">&nbsp; ✖️ &nbsp;&nbsp;</button>
+          <span class="grid-item1" onclick="delCartItem()">&nbsp; ✖️ &nbsp;&nbsp;</span>
           <img src="${product.photo}" class="grid-item2"/>&nbsp;
           <span class="grid-item3">${product.name}</span>
-          <div class="quantity grid-item4">${product.quantity}</div>&nbsp;
+          
+          <div class="quantity grid-item4"><span>➖</span>${product.quantity}<span>➕</span></div>&nbsp;
+          
           <div class="price grid-item5">${product.price} </div>&nbsp;
-          <div class="total grid-item6">$${product.quantity * product.price},00</div>
+          <div class="total grid-item6">$${(product.quantity * product.price).toFixed(2)}</div>
       </div>
       <hr />
         `;
+      // display total price of cart
+      s += product.quantity * product.price;
     });
+  }
+  document.querySelector("#result").innerHTML = "$" + s.toFixed(2);
+}
+
+function delCartItem(idx) {
+  if (confirm(`Are you sure you want to delete this item?`)) {
+
   }
 }

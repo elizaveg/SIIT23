@@ -1,0 +1,12 @@
+
+.details-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.details-img{
+
+}
+.box{
+    max-width: 400px;
+    flex-grow: 1;
+}

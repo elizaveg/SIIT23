@@ -23,10 +23,12 @@
           alt="bonsai-logo"
         />
       </a>
-      <a href="cart.html"> <button style="float: right">🛒</button> </a>&#160;
-      <a href="admin.html">
-        <button style="float: right">Admin</button>
+      <a href="cart.html" style="float: right"> <button>🛒</button> </a>&#160;
+      <a href="admin.html" style="float: right">
+        <button>Admin</button>
       </a>
+      <br />
+      <br />
       <span class="search-bar">
         <input
           type="search"
@@ -50,10 +52,10 @@
       </span>
     </header>
     <br />
-    <div style="margin: 20px">
+    <div style="display: flex; justify-content: space-between">
       <span><b>Your shopping bag</b></span>
       <a href="index.html">
-        <button style="float: right">Continue shopping</button>
+        <button>Continue shopping</button>
       </a>
     </div>
     <br />
@@ -69,6 +71,8 @@
     <div id="myBag" class="products-container">No items</div>
     <div class="products"></div>
     <br />
+    <span><b>Total price</b></span>
+    <span id="result"></span>
     <div id="no_items" class="hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"

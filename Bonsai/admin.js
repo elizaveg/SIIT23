@@ -117,3 +117,6 @@ async function del(idx) {
         await getData();
     }
 }
+
+
+
