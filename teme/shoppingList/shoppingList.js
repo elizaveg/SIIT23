@@ -32,14 +32,13 @@ function draw() {
     str += `
             <tr>
                 <td>${elem.product}</td>
-                <td class="completed">
+                <td >
                     <button onclick="showMarked(${i})"> Mark as buyed </button>
                 </td>
             </tr>
             `;
-    if (elem.marked === true) {
-      showMarked();
-      draw();
+    if (elem === true) {
+      document.querySelector("td").classList.add("completed");
     } else {
       continue;
     }
@@ -65,8 +64,8 @@ function adauga(event) {
 }
 
 function showMarked(idx) {
-  document.querySelector("td").classList.add("completed");
-  state.list[idx].marked = true;
+  let elem = state.list[idx];
+  state.list[idx] = true;
   draw();
 }
 

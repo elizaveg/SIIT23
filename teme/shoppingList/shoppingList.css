@@ -20,6 +20,6 @@ table {
 .hidden {
     display: none;
 }
-.completed {
-  text-decoration: line-through;
+td.completed {
+    text-decoration: line-through;
 }
