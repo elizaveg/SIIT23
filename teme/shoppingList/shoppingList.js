@@ -37,11 +37,6 @@ function draw() {
                 </td>
             </tr>
             `;
-    if (elem === true) {
-      document.querySelector("td").classList.add("completed");
-    } else {
-      continue;
-    }
   }
   table.innerHTML = str;
 }
@@ -66,6 +61,9 @@ function adauga(event) {
 function showMarked(idx) {
   let elem = state.list[idx];
   state.list[idx] = true;
+  if (elem === true) {
+    document.querySelector("td").classList.add("completed");
+  }
   draw();
 }
 
