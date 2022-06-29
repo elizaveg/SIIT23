@@ -19,8 +19,6 @@ body {
 #main-navigation {
     padding: 12px;
     align-items: center;
-    flex-wrap: wrap;
-    
 }
 
 .box {
@@ -82,10 +80,6 @@ li a, .dropbtn {
     padding: 14px 16px;
     text-decoration: none;
   }
-
-li.dropdown {
-    display: inline-block;
-  }
   
 .dropdown-content {
     display: none;
@@ -107,7 +101,7 @@ li.dropdown {
 }
 
 .item-img {
-    max-width: 100%;
+    max-width: 310px;
     display: flex;
     flex-direction: row;
     margin-right: 10px;
@@ -188,6 +182,11 @@ body a {
 }
 .details-content{
   display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  max-width: 400px;
+  flex-grow: 1;
 }
 button:not(.search-button):not(.carousel-control-next):not(.carousel-control-prev):not(.grid-item4 > button) {
     padding: 6px 15px;

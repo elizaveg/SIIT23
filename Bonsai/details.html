@@ -13,20 +13,7 @@
     <link rel="stylesheet" href="loading.css" />
     <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="detail.css" />
     <script src="index.js"></script>
-    <style>
-      main {
-        padding: 24px;
-      }
-      img {
-        max-width: inherit;
-        max-height: 500px;
-        display: flex;
-        flex-direction: row;
-      }
-    </style>
-    <script></script>
   </head>
   <body onload="getDetails();">
     <header id="main-navigation">
@@ -37,8 +24,9 @@
           alt="bonsai-logo"
         />
       </a>
-      <a href="cart.html" style="float: right"> <button>🛒</button> </a>
-      &nbsp;
+      <a href="cart.html" style="float: right; margin-left: 5px">
+        <button>🛒</button>
+      </a>
       <a href="admin.html" style="float: right">
         <button>Admin</button>
       </a>
@@ -70,63 +58,26 @@
       <ul>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Jewelry & Accessories</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Clothing & Shoes</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Home & Living</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Toys & Entertainment</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Art & Tools</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Vintage</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
         </li>
       </ul>
     </div>
     <br />
     <span class="loading centered"></span>
     <main id="curentDetails"></main>
-    <div></div>
-    <footer>
-      About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-      autem tempora quasi quis beatae corporis sint quaerat id, dolore quae
-      veniam, mollitia deserunt, ut sunt fugit voluptas. Quam, amet enim!
-      Contact Us: 0398475574 Adress: sbowiwibpwnfpiewb Facebook
-    </footer>
   </body>
 </html>

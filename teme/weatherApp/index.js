@@ -1,26 +1,26 @@
 let state = {
     currentWeatherDataBase: "https://api.openweathermap.org/data/2.5/weather?appid=69518b1f8f16c35f8705550dc4161056&units=metric&q=",
 
-    weatherIcon: "http://openweathermap.org/img/w/",
+    weatherIcon: "https://openweathermap.org/img/w/",
 
     forecastWeather: "https://api.openweathermap.org/data/2.5/forecast?appid=69518b1f8f16c35f8705550dc4161056&units=metric&q=",
-}
+};
 let data = {};
 
 async function getData() {
     let input = document.querySelector('[name="city"]').value;
     input = input.toLowerCase();
-    
+
     const response = await fetch(state.currentWeatherDataBase + input);
-     weatherData = await response.json();
+    weatherData = await response.json();
 
     let weatherDataText = document.querySelector("#weatherCityInformation");
     var str = "";
-        str += `
+    str += `
             <div>
                 <h3>Weather now in ${input}</h3>
                 <hr>
-                <img src="http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png"/><br />
+                <img src="https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png"/><br />
                 <span>${weatherData.weather[0].description}</span><br />
                 <span>Humidity: ${weatherData.main.humidity}%</span><br />
                 <span>Pressure: ${weatherData.main.pressure}hPa</span><br />
@@ -41,40 +41,35 @@ async function getData() {
             </div>
             `;
 
-weatherDataText.innerHTML = str;
+    weatherDataText.innerHTML = str;
 }
 
 async function forecast() {
-    let input = document.querySelector('[name="city"]').value;
+    let input = document.querySelector('input[type="text"').value;
     input = input.toLowerCase();
-    
+
     const response = await fetch(state.forecastWeather + input);
-     weatherForecast = await response.json();
-
-    let weatherDataText = document.querySelector("#weatherCityForecast");
-
+    weatherForecast = await response.json();
+    console.log(weatherForecast);
+    let weatherForecastText = document.querySelector("#weatherCityForecast");
     var str = "";
-        str += ` 
-                <div><h3>Weather Forcast</h3></div>
-                <div>
+    str += ` 
                 <div class="scrollmenu" style="display:flex;">
                 <hr>
                 <div>
-                    <span>${weatherForecast.list[0].dt_txt}</span><br />
-                    <img src="http://openweathermap.org/img/w/${weatherForecast.list[0].weather[0].icon}.png"</img><br />
-                    <span>${weatherForecast.list[0].weather[0].description}</span><br />
-                    <span>Clouds: ${weatherForecast.list[0].clouds.all}</span><br />
-                    <span>Temp: ${weatherForecast.list[0].main.temp}</span><br />
-                    <span>Feels like: ${weatherForecast.list[0].main.feels_like}</span><br />
-                    <span>Temp min: ${weatherForecast.list[0].main.temp_min}</span><br />
-                    <span>Temp max: ${weatherForecast.list[0].main.temp_max}</span><br />
-                    <span>Pressure: ${weatherForecast.list[0].main.pressure}</span><br />
+                    <span>${weatherForecast.dt_txt}</span><br />
+                    <img src="https://openweathermap.org/img/w/${weatherForecast.icon}.png"</img><br />
+                    <span>${weatherForecast["description"]}</span><br />
+                    <span>Clouds: ${weatherForecast.all}</span><br />
+                    <span>Temp: ${weatherForecast.temp}</span><br />
+                    <span>Feels like: ${weatherForecast.feels_like}</span><br />
+                    <span>Temp min: ${weatherForecast.temp_min}</span><br />
+                    <span>Temp max: ${weatherForecast.temp_max}</span><br />
+                    <span>Pressure: ${weatherForecast.pressure}</span><br />
                 </div>
-                <span>Data: ${weatherForecast.list[0].dt_txt}</span><br />
-                <span>Data: ${weatherForecast.list[0].dt_txt}</span><br />
-                <span>Data: ${weatherForecast.list[0].dt_txt}</span><br />
-
-            </div>
+                <span>Data: ${weatherForecast.dt_txt}</span><br />
+                <span>Data: ${weatherForecast.dt_txt}</span><br />
+                <span>Data: ${weatherForecast.dt_txt}</span><br />
         `;
-weatherDataText.innerHTML = str;
+    weatherForecastText.innerHTML = str;
 }

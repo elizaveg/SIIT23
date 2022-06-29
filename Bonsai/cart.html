@@ -12,7 +12,6 @@
     />
     <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="cart.css" />
-    <script src="index.js"></script>
   </head>
   <body onload="displayCart();">
     <header id="main-navigation">
@@ -23,7 +22,9 @@
           alt="bonsai-logo"
         />
       </a>
-      <a href="cart.html" style="float: right"> <button>🛒</button> </a>&#160;
+      <a href="cart.html" style="float: right; margin-left: 5px">
+        <button>🛒</button> </a
+      >&#160;
       <a href="admin.html" style="float: right">
         <button>Admin</button>
       </a>
@@ -59,17 +60,8 @@
       </a>
     </div>
     <br />
-    <div style="display: flex">
-      <b>
-        <span style="margin-left: 30px">Item</span>
-        <span style="margin-left: 950px">Quantity</span>
-        <span style="margin-left: 48px">Price</span>
-        <span style="margin-left: 70px">Total</span></b
-      >
-    </div>
     <hr />
     <div id="myBag" class="products-container">No items</div>
-    <div class="products"></div>
     <br />
     <span><b>Total price</b></span>
     <span id="result"></span>
@@ -86,11 +78,6 @@
         ></path>
       </svg>
     </div>
-    <footer>
-      About us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-      autem tempora quasi quis beatae corporis sint quaerat id, dolore quae
-      veniam, mollitia deserunt, ut sunt fugit voluptas. Quam, amet enim!
-      Contact Us: 0398475574 Adress: sbowiwibpwnfpiewb Facebook
-    </footer>
+    <script src="index.js"></script>
   </body>
 </html>

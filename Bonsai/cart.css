@@ -10,17 +10,9 @@ body {
     padding: 0 24px;
 }
 
-#categories {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
 #main-navigation {
     padding: 12px;
     align-items: center;
-    flex-wrap: wrap;
-    display: flex;
 }
 
 .box {
@@ -62,38 +54,6 @@ body {
     margin-left: auto;
     float: right;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-  }
-  
-li {
-    float: left;
-  }
-  
-li a, .dropbtn {
-    display: inline-block;
-    color: #00b289;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
-li.dropdown {
-    display: inline-block;
-  }
-  
-.dropdown-content a {
-    color: #00b289;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
   
 .items {
     display: flex;
@@ -144,14 +104,6 @@ body a {
 .content-box {
     width: 400px;
 }
-.content-title,
-.content-details,
-.content-subtotal {
-    box-sizing: border-box;
-    width: 100%;
-    border: solid #00b289 5px;
-    padding: 5px;
-}
 .container{
   position: absolute;
   bottom: 0;
@@ -172,7 +124,7 @@ body a {
 .details-content{
   display: flex;
 }
-button:not(.search-button):not(.carousel-control-next):not(.carousel-control-prev):not(.grid-item1) {
+button:not(.search-button):not(.carousel-control-next):not(.carousel-control-prev):not(.grid-item4 > button) {
     padding: 6px 15px;
     border-radius: 4px;
     background-color: #00b289;
@@ -199,13 +151,19 @@ button:not(.search-button):not(.carousel-control-next):not(.carousel-control-pre
     display: flex;
     margin: 5px;
 }
-.grid-item1,.grid-item2, .grid-item3, .grid-item4, .grid-item5, .grid-item6
+.grid-item1,
+.grid-item2, 
+.grid-item3, 
+.grid-item4, 
+.grid-item5, 
+.grid-item6
 {
     margin: 5px;
 }
 .grid-item1{
     max-width: 40px;
     max-height: 40px;
+    cursor: pointer;
 }
 .grid-item2{
     max-width: 170px;
@@ -213,6 +171,8 @@ button:not(.search-button):not(.carousel-control-next):not(.carousel-control-pre
 .grid-item3{
     flex: 1;
 }
-.grid-item4, .grid-item5, .grid-item6{
+.grid-item4, 
+.grid-item5, 
+.grid-item6{
     width: 80px;
 }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let state = {
+        list: [
+          {
+            product: "Ketchup",
+          },
+          {
+            product: "Pasta",
+          },
+        ],
+        idxEdit: null,
+      };
+
+      function draw() {
+        let table = document.querySelector("#list tbody");
+        let str = "";
+        for (let i = 0; i < state.list.lenght; i++) {
+          let elem = state.list[i];
+          str += `
+              <td>${elem.product}</td>
+              <td>
+                  <button> Mark as buyed</button>
+              </td>
+              `;
+        }
+        table.innerHTML = str;
+      }
+
+      function add() {
+        let product = document.querySelector("[name='product']").value.trim();
+        if (state.idxEdit === null) {
+          state.list.push({
+            product: product,
+          });
+        } else {
+          state.list[state.idxEdit] = {
+            product: product,
+          };
+          state.idxEdit = null;
+        }
+        document.querySelector("form").reset();
+        draw();
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h2>My Shopping List</h2>
+      <input type="text" id="myInput" placeholder="Add your wish" />
+      <button onclick="add();">Add</button>
+    </div>
+    <div>
+      <button>Sort asc</button>
+      <button>Sort desc</button>
+    </div>
+    <table id="list">
+      <tbody>
+        <ul id="myUL">
+          <li>Milk</li>
+          <li class="checked">Coffee</li>
+        </ul>
+      </tbody>
+    </table>
+  </body>
+</html>

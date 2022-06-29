@@ -167,7 +167,7 @@ function displayCart() {
           <img src="${product.photo}" class="grid-item2"/>&nbsp;
           <span class="grid-item3">${product.name}</span>
           
-          <div class="quantity grid-item4"><button onclick="decrement()" name ="quantity" class="btn minus1" >➖</button>${product.quantity}<button>➕</button></div>&nbsp;
+          <div class="quantity grid-item4"><span>➖</span>${product.quantity}<span>➕</span></div>&nbsp;
           
           <div class="price grid-item5">${product.price} </div>&nbsp;
           <div class="total grid-item6">$${(product.quantity * product.price).toFixed(2)}</div>
@@ -189,44 +189,3 @@ function delCartItem(pID) {
     displayCart();
   }
 }
-
-/*function decrement(pQ) {
-  if (confirm(`jbeofbweo`)) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    let newCart = cart.filter((product) => product.quantity -= pQ)
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    displayCart();
-  }
-}*/
-function decrement() {
-  let itemID = index;
-  let quantity = document.querySelector("[name=quantity]").value;
-  quantity = Number(quantity);
-  console.log(quantity);
-  quantity--;
-
-  document.querySelector("[name=quantity]").value = quantity;
-
-  let produs = product;
-
-  let cart = localStorage.getItem("cart");
-  if (cart === null) {
-    cart = [];
-  } else {
-    cart = JSON.parse(cart);
-  }
-  let found = false;
-  for (let p of cart) {
-    if (p.itemID === product.itemID) {
-      p.quantity = quantity;
-      found = true;
-    }
-  }
-  if (!found) {
-    cart.push({ ...product, quantity: quantity });
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart();
-}
-
-

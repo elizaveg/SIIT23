@@ -1,10 +1,15 @@
-
+main {
+    padding: 24px;
+  }
+  img {
+    max-width: inherit;
+    max-height: 500px;
+    display: flex;
+    flex-direction: row;
+  }
 .details-content{
     display: flex;
-    flex-wrap: wrap;
-}
-.details-img{
-
+    
 }
 .box{
     max-width: 400px;
